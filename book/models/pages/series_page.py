@@ -3,10 +3,7 @@ from selene.support.shared import browser
 from selene import have
 
 
-class SeriesPage(HomePage):
-
-    def __int__(self):
-        return self
+class SeriesPage:
 
     def open_series(self):
         browser.element('//a[contains(@class, "navigation-link") and contains(text(), "Серии")]').click()

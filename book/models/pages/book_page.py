@@ -3,9 +3,7 @@ from selene.support.shared import browser
 from selene import be
 
 
-class BookPage(HomePage):
-    def __int__(self):
-        return self
+class BookPage:
 
     def open_book(self):
         browser.element('//img[contains(@class, "product_item_img-bg")]').click()

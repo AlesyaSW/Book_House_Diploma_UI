@@ -1,12 +1,18 @@
-from .pages.home_page import HomePage
-from .pages.login_page import LoginPage
-from .pages.book_page import BookPage
-from .pages.series_page import SeriesPage
-from .pages.basket_page import BasketPage
+from book.models.pages.home_page import HomePage
+from book.models.pages.login_page import LoginPage
+from book.models.pages.book_page import BookPage
+from book.models.pages.series_page import SeriesPage
+from book.models.pages.basket_page import BasketPage
 
-home_page = HomePage()
-login_page = LoginPage()
-book_page = BookPage()
-series_page = SeriesPage()
-basket_page = BasketPage()
 
+class ApplicationManager:
+
+    def __init__(self):
+        self.home_page = HomePage()
+        self.login_page = LoginPage()
+        self.book_page = BookPage()
+        self.series_page = SeriesPage()
+        self.basket_page = BasketPage()
+
+
+app = ApplicationManager()

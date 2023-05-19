@@ -2,10 +2,7 @@ from book.models.pages.home_page import HomePage
 from selene.support.shared import browser
 
 
-class BasketPage(HomePage):
-
-    def __int__(self):
-        return self
+class BasketPage:
 
     def open_basket(self):
         browser.element('//span[contains(@class, "icon-item basket-icon")]').click()

@@ -3,9 +3,7 @@ from selene.support.shared import browser
 from selene import be
 
 
-class LoginPage(HomePage):
-    def __int__(self):
-        return
+class LoginPage:
 
     def click_login(self):
         browser.element('//span[contains(text(),"Войти") and contains(@class,"icon-txt")]').click()
