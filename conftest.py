@@ -15,6 +15,10 @@ def preparations():
     attach.add_screenshot(browser)
     attach.add_logs(browser)
     attach.add_video(browser)
+
+@pytest.fixture(scope='function', autouse=True)
+def driver_managment_remote():
+
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
