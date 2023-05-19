@@ -22,8 +22,8 @@ def driver_managment_remote():
         options=options)
 
     browser.config.driver = driver
-    browser.config.window_width = 1150
-    browser.config.window_height = 796
+    browser.config.window_width = 1200
+    browser.config.window_height = 800
 
     yield browser
     attach.add_html(browser)
