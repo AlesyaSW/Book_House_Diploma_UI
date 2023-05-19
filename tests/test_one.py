@@ -30,7 +30,7 @@ def test_auth_with_not_email(preparations):
 @allure.description('Проверка поиска')
 @allure.feature('Проверка поиска отсутствующей книги')
 @allure.link('https://www.dom-knigi.ru/')
-def test_error_search_product():
+def test_error_search_product(preparations):
     with allure.step('Открываем главную страницу ЧетыреЛапы'):
         app.home_page.open_page()
         app.home_page.search_book(data_home_page.not_valid_name_product)
@@ -44,7 +44,7 @@ def test_error_search_product():
 @allure.description('Проверка поиска книг')
 @allure.feature('Проверка поиска существующей книги')
 @allure.link('https://www.dom-knigi.ru/')
-def test_valid_search_book():
+def test_valid_search_book(preparations):
     with allure.step('Открываем главную страницу и вводим в строку поска наименование книги'):
         app.home_page.open_page(). \
             search_book(data_home_page.valid_name_book)
@@ -58,7 +58,7 @@ def test_valid_search_book():
 @allure.description('Проверка поиска cерии книг')
 @allure.feature('Проверка поиска cерии')
 @allure.link('https://www.dom-knigi.ru/')
-def test_search_series():
+def test_search_series(preparations):
     with allure.step('Открываем главную страницу переходим в серии книг'):
         app.home_page.open_page()
     with allure.step('Выбираем раздел "Серии"'):
@@ -74,7 +74,7 @@ def test_search_series():
 @allure.description('Добавление в корзину книги')
 @allure.feature('Проверка добавления книги в корзину неавторизованным пользователем')
 @allure.link('https://www.dom-knigi.ru/')
-def test_add_book_in_basket():
+def test_add_book_in_basket(preparations):
     with allure.step('Открываем главную страницу сайта'):
         app.home_page.open_page()
     with allure.step(f'Переходим на главную страницу и вводим в поиске наименование книги {data_home_page.book_to_read}'):
@@ -92,7 +92,7 @@ def test_add_book_in_basket():
 @allure.description('Ввод неверного промокода в корзине')
 @allure.feature('Ввод неверного промокода в корзине')
 @allure.link('https://www.dom-knigi.ru/')
-def test_not_valid_promocode():
+def test_not_valid_promocode(preparations):
     with allure.step('Открываем главную страницу сайта'):
         app.home_page.open_page()
     with allure.step(f'Переходим на главную страницу и вводим в поиске наименование книги {data_home_page.book_to_read}'):
