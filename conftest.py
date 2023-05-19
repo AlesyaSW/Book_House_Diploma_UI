@@ -14,7 +14,7 @@ def preparations():
     attach.add_html(browser)
     attach.add_screenshot(browser)
     attach.add_logs(browser)
-    # attach.add_video(browser)
+    attach.add_video(browser)
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
@@ -32,3 +32,8 @@ def preparations():
         options=options)
 
     browser.config.driver = driver
+
+    yield
+    attach.add_screenshot(browser)
+    attach.add_video(browser)
+    browser.quit()
