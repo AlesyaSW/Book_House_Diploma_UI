@@ -93,6 +93,13 @@ def test_add_book_in_basket():
 @allure.feature('Ввод неверного промокода в корзине')
 @allure.link('https://www.dom-knigi.ru/')
 def test_not_valid_promocode():
+    with allure.step('Открываем главную страницу сайта'):
+        app.home_page.open_page()
+    with allure.step(f'Переходим на главную страницу и вводим в поиске наименование книги {data_home_page.book_to_read}'):
+        app.home_page.search_book(data_home_page.book_to_read)
+    with allure.step('Открываем книгу и добавляем ее в корзину'):
+        app.book_page.open_book(). \
+                add_in_basket()
     with allure.step('Открываем корзину'):
         app.basket_page.open_basket()
     with allure.step('Вводим в поле промокод и проверяем, что появилась ошибка'):
