@@ -4,6 +4,7 @@ from book.models import app
 from book.models.data import data_home_page
 
 
+
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "Pimenova")
@@ -18,7 +19,7 @@ def test_auth_with_not_email(preparations):
             click_login(). \
             login_by_email(). \
             enter_password(). \
-            button()
+            button_login()
     with allure.step('Проверяем появление ошибки'):
         app.login_page.check_error_auth_email()
 
@@ -59,8 +60,12 @@ def test_valid_search_book():
 @allure.link('https://www.dom-knigi.ru/')
 def test_search_series():
     with allure.step('Открываем главную страницу переходим в серии книг'):
-        app.home_page.open_page(). \
-            search_series()
+        app.home_page.open_page()
+    with allure.step('Выбираем раздел "Серии"'):
+        app.series_page.open_series()
+    with allure.step('Открываем определенную серию и проверяем, что открылась верная серия книг'):
+        app.series_page.selection_specific_series().\
+            check_valid_series()
 
 
 @allure.tag('web')
@@ -74,39 +79,25 @@ def test_add_book_in_basket():
         app.home_page.open_page()
     with allure.step(f'Переходим на главную страницу и вводим в поиске наименование книги {data_home_page.book_to_read}'):
         app.home_page.search_book(data_home_page.book_to_read)
-    with allure.step('Открываем книгу и добавляем в корзину'):
+    with allure.step('Открываем книгу и добавляем ее в корзину'):
         app.book_page.open_book(). \
                 add_in_basket()
     with allure.step('Проверяем, что книга добавлена в корзину'):
-        app.book_page.quantity_in_basket()
+        app.book_page.quantity_on_page()
 
 
+@allure.tag('web')
+@allure.severity(Severity.NORMAL)
+@allure.label('owner', 'Pimenova')
+@allure.description('Ввод неверного промокода в корзине')
+@allure.feature('Ввод неверного промокода в корзине')
+@allure.link('https://www.dom-knigi.ru/')
+def test_not_valid_promocode():
+    with allure.step('Открываем корзину'):
+        app.basket_page.open_basket()
+    with allure.step('Вводим в поле промокод и проверяем, что появилась ошибка'):
+        app.basket_page.enter_promocode(data_home_page.not_valid_promocode).\
+            apply_button().\
+            check_error_promocode()
 
 
-
-
-
-
-
-
-# @allure.tag("web")
-# @allure.severity(Severity.CRITICAL)
-# @allure.label("owner", "Pimenova")
-# @allure.description('Проверка авторизации')
-# @allure.feature(f'Проверка авторизации с невалидным паролем')
-# @allure.feature("Проверка отображния окна регистрации при вводе email, который отсутствует в системе")
-# @allure.link("https://4lapy.ru/", name="Testing")
-# def test_auth_with_not_exist_password():
-#     with allure.step('Открываем главную страницу ЧетыреЛапы и форму авторизации'):
-#         app.home_page.open_page()
-#         app.login_page.click_login()
-#     with allure.step('Вводим пароль меньше 6 знаков'):
-#         app.login_page.enter_password()
-#     with allure.step('Проверяем получение ошибки авторизации'):
-#              app.login_page.check_error_auth_password()
-
-
-# attach.add_html(browser)
-# attach.add_screenshot(browser)
-# attach.add_logs(browser)
-# attach.add_video(browser)

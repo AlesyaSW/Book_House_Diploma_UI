@@ -15,5 +15,6 @@ class BookPage(HomePage):
         browser.element('//div[contains(@class, "main-button-container")]').click()
         return self
 
-    def quantity_in_basket(self):
+    def quantity_on_page(self):
         browser.element('//input[contains(@class, "product-item-amount-field")]').should(be.visible)
+        return self
