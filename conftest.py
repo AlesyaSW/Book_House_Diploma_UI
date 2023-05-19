@@ -4,9 +4,8 @@ from book.utils import attach
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope='function')
 def preparations():
-    browser.config.hold_browser_open = True
     browser.config.window_width = 1150
     browser.config.window_height = 796
 
@@ -15,6 +14,7 @@ def preparations():
     attach.add_screenshot(browser)
     attach.add_logs(browser)
     attach.add_video(browser)
+
 
 @pytest.fixture(scope='function', autouse=True)
 def driver_managment_remote():
