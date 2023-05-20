@@ -1,4 +1,3 @@
-from book.models.pages.home_page import HomePage
 from selene.support.shared import browser
 
 
