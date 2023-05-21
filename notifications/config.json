@@ -1,0 +1,17 @@
+{
+  "base": {
+    "project": "Book_House_Diploma_UI",
+    "environment": "QAGURU",
+    "comment": "@HoneyLesya",
+    "reportLink": "",
+    "language": "ru",
+    "messenger": "telegram",
+    "allureFolder": "allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "5843088824:AAGhQ5M26XVsfAICHdfwf-72DTTmxGT3Yaw",
+    "chat": "-1001832067283",
+    "replyTo": ""
+  }
+}
