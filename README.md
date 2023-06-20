@@ -29,7 +29,7 @@
 
 ### <img width="5%" title="Jenkins" src="images/logo/jenkins.png"> Запуск проекта в Jenkins
 
-### [Job](https://jenkins.autotests.cloud/job/Book_House/)
+### [Job](https://jenkins.autotests.cloud/job/Students/job/Book_House/)
 
 ##### При нажатии на "Собрать сейчас" начнется сборка тестов и их прохождение, через виртуальную машину в Selenide.
 ![This is an image](images/screenshot/jenkins.png)
@@ -37,7 +37,7 @@
 <!-- Allure report -->
 
 ### <img width="5%" title="Allure Report" src="images/logo/allure_report.png"> Allure report
-
+### [Report] (https://jenkins.autotests.cloud/job/Students/job/Book_House/allure/)
 ##### После прохождения тестов, результаты можно посмотреть в Allure отчете, где так же содержится ссылка на Jenkins
 ![This is an image](images/screenshot/allure_dashboard.png)
 
