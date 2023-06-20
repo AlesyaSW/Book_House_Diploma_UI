@@ -37,7 +37,7 @@
 <!-- Allure report -->
 
 ### <img width="5%" title="Allure Report" src="images/logo/allure_report.png"> Allure report
-### [Report] (https://jenkins.autotests.cloud/job/Students/job/Book_House/allure/)
+### [Report](https://jenkins.autotests.cloud/job/Students/job/Book_House/allure/)
 ##### После прохождения тестов, результаты можно посмотреть в Allure отчете, где так же содержится ссылка на Jenkins
 ![This is an image](images/screenshot/allure_dashboard.png)
 
